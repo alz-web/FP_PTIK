@@ -1,5 +1,4 @@
 import streamlit as st
-import st_pages as sp
 import os 
 import pandas as pd
 bg_image_url = "https://c4.wallpaperflare.com/wallpaper/670/883/685/plexus-atoms-neutrons-electrons-wallpaper-preview.jpg"
