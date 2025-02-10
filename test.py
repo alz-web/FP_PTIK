@@ -12,15 +12,23 @@ def home():
     
     st.subheader("Available Courses")
     if st.button("Python Basics"):
-        st.session_state.page = 'Course: Python Basics'
+        st.session_state.page = 'Python Basics'
     if st.button("Data Science 101"):
-        st.session_state.page = 'Course: Data Science 101'
+        st.session_state.page = 'Data Science 101'
 
-def course_page(course_name, content, quiz):
-    st.title(course_name)
-    st.write(content)
+def course_lecture_page(course_name, video_url, pdf_url):
+    st.title(f"{course_name} - Lecture")
+    st.video(video_url)
+    st.subheader("Download Lecture Notes")
+    st.markdown(f"[Download PDF]({pdf_url})")
     
-    st.subheader("Quiz")
+    if st.button("Go to Quiz"):
+        st.session_state.page = f'Quiz: {course_name}'
+    if st.button("Back to Home"):
+        st.session_state.page = 'Home'
+
+def quiz_page(course_name, quiz):
+    st.title(f"{course_name} - Quiz")
     score = 0
     for question, options in quiz.items():
         answer = st.radio(question, options['choices'])
@@ -37,16 +45,18 @@ def course_page(course_name, content, quiz):
 def main():
     if st.session_state.page == 'Home':
         home()
-    elif st.session_state.page == 'Course: Python Basics':
-        course_page("Python Basics", 
-                    "Learn the fundamentals of Python programming!", 
-                    {"What is Python?": {"choices": ["A Snake", "A Programming Language", "A Fruit"], "correct": "A Programming Language"},
-                     "Which keyword is used to define a function?": {"choices": ["def", "func", "define"], "correct": "def"}})
-    elif st.session_state.page == 'Course: Data Science 101':
-        course_page("Data Science 101", 
-                    "Introduction to data science and machine learning.", 
-                    {"What is Data Science?": {"choices": ["A way to store data", "A field of study", "A coding language"], "correct": "A field of study"},
-                     "Which library is used for data visualization?": {"choices": ["pandas", "matplotlib", "numpy"], "correct": "matplotlib"}})
+    elif st.session_state.page == 'Python Basics':
+        course_lecture_page("Python Basics", "https://example.com/python_basics.mp4", "https://example.com/python_basics.pdf")
+    elif st.session_state.page == 'Quiz: Python Basics':
+        quiz_page("Python Basics", 
+                  {"What is Python?": {"choices": ["A Snake", "A Programming Language", "A Fruit"], "correct": "A Programming Language"},
+                   "Which keyword is used to define a function?": {"choices": ["def", "func", "define"], "correct": "def"}})
+    elif st.session_state.page == 'Data Science 101':
+        course_lecture_page("Data Science 101", "https://example.com/data_science_101.mp4", "https://example.com/data_science_101.pdf")
+    elif st.session_state.page == 'Quiz: Data Science 101':
+        quiz_page("Data Science 101", 
+                  {"What is Data Science?": {"choices": ["A way to store data", "A field of study", "A coding language"], "correct": "A field of study"},
+                   "Which library is used for data visualization?": {"choices": ["pandas", "matplotlib", "numpy"], "correct": "matplotlib"}})
 
 if __name__ == "__main__":
     main()
