@@ -6,7 +6,7 @@ st.set_page_config(page_title="SQL Lecture - Chapter 1", layout="wide")
 # Sidebar Navigation
 st.sidebar.title("SQL Lecture")
 st.sidebar.markdown("Navigate through the lecture sections:")
-page = st.sidebar.radio("Go to", ["Introduction", "Basic Concepts", "SQL Queries", "Examples", "Practice"])
+page = st.sidebar.button("Go to", ["Introduction", "Basic Concepts", "SQL Queries", "Examples", "Practice"])
 
 # Introduction
 if page == "Introduction":
