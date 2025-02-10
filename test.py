@@ -4,9 +4,9 @@ import streamlit as st
 st.set_page_config(page_title="SQL Lecture - Chapter 1", layout="wide")
 
 # Sidebar Navigation
-st.sidebar.title("SQL Lecture")
+st.sidebar.title("SQL Course")
 st.sidebar.markdown("Navigate through the lecture sections:")
-page = st.sidebar.button("Go to", ["Introduction", "Basic Concepts", "SQL Queries", "Examples", "Practice"])
+page = st.sidebar.radio("Go to", ["Introduction", "Basic Concepts", "SQL Queries", "Examples", "Practice", "Quiz"])
 
 # Introduction
 if page == "Introduction":
@@ -59,6 +59,26 @@ elif page == "Practice":
     query = st.text_area("Write your SQL query below:")
     if st.button("Run Query"):
         st.write("Query execution feature coming soon!")
+
+# Quiz Section
+elif page == "Quiz":
+    st.title("SQL Quiz")
+    st.write("Test your knowledge with these multiple-choice questions.")
+    
+    questions = [
+        ("What does SQL stand for?", ["Structured Question Language", "Structured Query Language", "Simple Query Language"], "Structured Query Language"),
+        ("Which SQL command is used to retrieve data?", ["SELECT", "INSERT", "DELETE"], "SELECT"),
+        ("Which clause is used to filter results in SQL?", ["WHERE", "ORDER BY", "HAVING"], "WHERE")
+    ]
+    
+    score = 0
+    for question, options, correct in questions:
+        answer = st.radio(question, options)
+        if answer == correct:
+            score += 1
+    
+    if st.button("Submit Answers"):
+        st.success(f"You scored {score} out of {len(questions)}!")
 
 st.sidebar.markdown("---")
 st.sidebar.info("This lecture is part of the SQL course. Stay tuned for more!")
