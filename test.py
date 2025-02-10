@@ -1,84 +1,52 @@
 import streamlit as st
 
-# Set page title
-st.set_page_config(page_title="SQL Lecture - Chapter 1", layout="wide")
+# Initialize session state
+if 'page' not in st.session_state:
+    st.session_state.page = 'Home'
+if 'progress' not in st.session_state:
+    st.session_state.progress = {}
 
-# Sidebar Navigation
-st.sidebar.title("SQL Course")
-st.sidebar.markdown("Navigate through the lecture sections:")
-page = st.sidebar.radio("Go to", ["Introduction", "Basic Concepts", "SQL Queries", "Examples", "Practice", "Quiz"])
-
-# Introduction
-if page == "Introduction":
-    st.title("Introduction to SQL")
-    st.write("Structured Query Language (SQL) is the standard language for relational database management systems.")
-    st.markdown("### What You Will Learn:")
-    st.markdown("- What is SQL?")
-    st.markdown("- Why SQL is important?")
-    st.markdown("- Basic SQL structure")
-
-# Basic Concepts
-elif page == "Basic Concepts":
-    st.title("Basic SQL Concepts")
-    st.markdown("### Key Topics:")
-    st.write("- Databases and Tables")
-    st.write("- SQL Data Types")
-    st.write("- Primary Keys and Foreign Keys")
-    st.write("- SQL Syntax Rules")
-
-# SQL Queries
-elif page == "SQL Queries":
-    st.title("Writing SQL Queries")
-    st.markdown("### Common SQL Commands:")
-    st.code("""
-    SELECT column1, column2 FROM table_name;
-    INSERT INTO table_name (column1, column2) VALUES (value1, value2);
-    UPDATE table_name SET column1 = value1 WHERE condition;
-    DELETE FROM table_name WHERE condition;
-    """, language='sql')
-
-# Examples
-elif page == "Examples":
-    st.title("SQL Query Examples")
-    st.write("Here are some example queries:")
-    st.code("""
-    -- Creating a table
-    CREATE TABLE Students (
-        ID INT PRIMARY KEY,
-        Name VARCHAR(50),
-        Age INT
-    );
+def home():
+    st.title("Welcome to EduStream!")
+    st.write("An interactive learning platform built with Streamlit.")
     
-    -- Inserting data
-    INSERT INTO Students (ID, Name, Age) VALUES (1, 'Alice', 22);
-    """, language='sql')
+    st.subheader("Available Courses")
+    if st.button("Python Basics"):
+        st.session_state.page = 'Course: Python Basics'
+    if st.button("Data Science 101"):
+        st.session_state.page = 'Course: Data Science 101'
 
-# Practice
-elif page == "Practice":
-    st.title("Practice Writing SQL Queries")
-    query = st.text_area("Write your SQL query below:")
-    if st.button("Run Query"):
-        st.write("Query execution feature coming soon!")
-
-# Quiz Section
-elif page == "Quiz":
-    st.title("SQL Quiz")
-    st.write("Test your knowledge with these multiple-choice questions.")
+def course_page(course_name, content, quiz):
+    st.title(course_name)
+    st.write(content)
     
-    questions = [
-        ("What does SQL stand for?", ["Structured Question Language", "Structured Query Language", "Simple Query Language"], "Structured Query Language"),
-        ("Which SQL command is used to retrieve data?", ["SELECT", "INSERT", "DELETE"], "SELECT"),
-        ("Which clause is used to filter results in SQL?", ["WHERE", "ORDER BY", "HAVING"], "WHERE")
-    ]
-    
+    st.subheader("Quiz")
     score = 0
-    for question, options, correct in questions:
-        answer = st.radio(question, options)
-        if answer == correct:
+    for question, options in quiz.items():
+        answer = st.radio(question, options['choices'])
+        if answer == options['correct']:
             score += 1
     
-    if st.button("Submit Answers"):
-        st.success(f"You scored {score} out of {len(questions)}!")
+    if st.button("Submit Quiz"):
+        st.session_state.progress[course_name] = score
+        st.write(f"You scored {score}/{len(quiz)}!")
+    
+    if st.button("Back to Home"):
+        st.session_state.page = 'Home'
 
-st.sidebar.markdown("---")
-st.sidebar.info("This lecture is part of the SQL course. Stay tuned for more!")
+def main():
+    if st.session_state.page == 'Home':
+        home()
+    elif st.session_state.page == 'Course: Python Basics':
+        course_page("Python Basics", 
+                    "Learn the fundamentals of Python programming!", 
+                    {"What is Python?": {"choices": ["A Snake", "A Programming Language", "A Fruit"], "correct": "A Programming Language"},
+                     "Which keyword is used to define a function?": {"choices": ["def", "func", "define"], "correct": "def"}})
+    elif st.session_state.page == 'Course: Data Science 101':
+        course_page("Data Science 101", 
+                    "Introduction to data science and machine learning.", 
+                    {"What is Data Science?": {"choices": ["A way to store data", "A field of study", "A coding language"], "correct": "A field of study"},
+                     "Which library is used for data visualization?": {"choices": ["pandas", "matplotlib", "numpy"], "correct": "matplotlib"}})
+
+if __name__ == "__main__":
+    main()
