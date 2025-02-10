@@ -21,7 +21,6 @@ st.title("DBMS ")
 st.write ("Database Managesdadmentdsad System as a crucial thing for a beginner to learn back-end ")
 a = 7 
 st.button("im button")
-st.image(r"C:\Users\Alz\OneDrive\UNION\KIRSCH\CAREER\Coding\Streamlit\static\Back.jpg",width=1000)
 st.subheader("This is Ex Dataframe")
 pf = pd.DataFrame({
     'Name' : ['Bihan','alzam','bihan'],
