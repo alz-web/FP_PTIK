@@ -11,107 +11,98 @@ st.markdown(
     """
     <style>
         [data-testid="stAppViewContainer"] {
-            background-color:rgb(255, 255, 255);
-            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         [data-testid="stSidebar"] {
-            background-color:rgb(48, 82, 131);
+            background-color: #1f2937;
             color: white;
-            border-radius: 5px;
+            border-radius: 8px;
         }
         [data-testid="stSidebar"] h1 {
-            font-size: 35px;
-            font-weight: bold;
-            color: #ffffff;
+            font-size: 48px;
+            font-weight: 700;
+            color: #e5e7eb;
             text-align: center;
         }
-        /* Sidebar buttons hover */
         [data-testid="stSidebar"] button {
-            background-color: #2c4a78 !important;
-            color: white !important;
+            background-color: #374151 !important;
+            color: #e5e7eb !important;
+            border: 1px solid #4b5563;
+            border-radius: 6px;
             transition: background 0.3s ease, color 0.3s ease;
         }
         [data-testid="stSidebar"] button:hover {
-            background-color: black !important;
-            color: white !important;
+            background-color: #111827 !important;
+            color: #f9fafb !important;
         }
         .main-title {
-            font-size: 50px;
-            font-weight: bold;
-            color:rgb(255, 255, 255);
+            font-size: 48px;
+            font-weight: 700;
+            color: #f9fafb;
             text-align: center;
-            padding: 20px;
-            margin-bottom: 20px;
-            background-color:rgb(42, 74, 105);
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 24px;
+            margin-bottom: 24px;
+            background-color: #111827;
+            border-radius: 12px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
         }
         .video-container, .quiz-container, .content-container {
             text-align: center;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            padding: 24px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+            margin-bottom: 24px;
         }
-        /* Full-Width Team Members Section */
-#team-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 20px;
-    background-color: #f8f9fa;
-}
-
-.team-member {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    padding: 20px;
-    margin-bottom: 20px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.team-member:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-.team-image img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    margin-right: 20px;
-    border: 3px solid #e0e0e0;
-}
-
-.team-info {
-    flex: 1;
-}
-
-.team-info h3 {
-    font-size: 22px;
-    color: #333333;
-    margin-bottom: 5px;
-}
-
-.team-info p {
-    font-size: 16px;
-    color: #555555;
-    margin: 4px 0;
-}
-
-.team-info p strong {
-    color: #007bff;
-}
+        #team-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 24px;
+            background-color: #f1f5f9;
+        }
+        .team-member {
+            background-color: #e2e8f0;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            padding: 24px;
+            margin-bottom: 24px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .team-member:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+        .team-image img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            margin-right: 24px;
+            border: 4px solid #94a3b8;
+        }
+        .team-info h3 {
+            font-size: 24px;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+        .team-info p {
+            font-size: 16px;
+            color: #475569;
+            margin: 6px 0;
+        }
+        .team-info p strong {
+            color: #3b82f6;
+        }
     </style>
     """,
     unsafe_allow_html=True
 )
+
 
 # Sidebar Navigation
 st.sidebar.markdown("<h1>SQL Course</h1>", unsafe_allow_html=True)
@@ -232,9 +223,9 @@ if selected_chapter == "Our Team":
     st.markdown("<div id='team-container'>", unsafe_allow_html=True)
     st.write("### Meet the Team Behind This Web Application")
     team_members = [
-        {"name": "Alfredo Yezekhiel Panjaitan", "role": "4131240264", "image": "https://i.ibb.co.com/1YZHB7hn/Whats-App-Image-2025-02-15-at-11-28-33-8f28dcf5.jpg", "bio": "Alice is an experienced software engineer with a passion for database technologies."},
+        {"name": "Alfredo Yezekhiel Panjaitan", "role": "4131240264", "image": "https://i.ibb.co.com/1YZHB7hn/Whats-App-Image-2025-02-15-at-11-28-33-8f28dcf5.jpg", "bio": "Ubur-ubur ikan lele, semangat terus le"},
         {"name": "Moza Siti Farhanah", "role": "4131240390", "image": "https://i.ibb.co.com/7J36F9xH/prof2.jpg", "bio": "Bob specializes in backend development and has a strong focus on SQL optimization."},
-        {"name": "Muhammad Nabihan Alzam", "role": "4131240313", "image": "https://i.ibb.co.com/ymKB09p1/Foto-Bakal-BLM.jpg", "bio": "Charlie is the creative mind behind the user interface and experience of this web app."},
+        {"name": "Muhammad Nabihan Alzam", "role": "4131240313", "image": "https://i.ibb.co.com/ymKB09p1/Foto-Bakal-BLM.jpg", "bio": "Ketika kita tertidur maka saat itu lah mata kita tidak melek"},
         {"name": "Nesya Nurrahma Rifi", "role": "4131240332", "image": "https://i.ibb.co.com/0VnLRCmB/prof.jpg", "bio": "Diana oversees the project and ensures everything is delivered on time."},
         {"name": "Savana Rizky Purnama", "role": "4131240426", "image": "https://i.ibb.co.com/TqvJQ8tw/prof3.jpg", "bio": "Ethan has deep expertise in database management and ensures the app's data is managed efficiently."}]
 
