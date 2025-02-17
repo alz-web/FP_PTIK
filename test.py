@@ -226,8 +226,8 @@ if selected_chapter == "Our Team":
         {"name": "Alfredo Yezekhiel Panjaitan", "role": "4131240264", "image": "https://i.ibb.co.com/1YZHB7hn/Whats-App-Image-2025-02-15-at-11-28-33-8f28dcf5.jpg", "bio": "Ubur-ubur ikan lele, semangat terus le."},
         {"name": "Moza Siti Farhanah", "role": "4131240390", "image": "https://i.ibb.co.com/7J36F9xH/prof2.jpg", "bio": "Take it easy, even the sun takes time to rise."},
         {"name": "Muhammad Nabihan Alzam", "role": "4131240313", "image": "https://i.ibb.co.com/ymKB09p1/Foto-Bakal-BLM.jpg", "bio": "Ketika kita tertidur maka saat itu lah mata kita tidak melek."},
-        {"name": "Nesya Nurrahma Rifi", "role": "4131240332", "image": "https://i.ibb.co.com/0VnLRCmB/prof.jpg", "bio": "Namaku savana. Cats bring me happiness."},
-        {"name": "Savana Rizky Purnama", "role": "4131240426", "image": "https://i.ibb.co.com/TqvJQ8tw/prof3.jpg", "bio": "Success is not final, failure is not fatal: it is the courage to continue that counts."}]
+        {"name": "Nesya Nurrahma Rifi", "role": "4131240332", "image": "https://i.ibb.co.com/0VnLRCmB/prof.jpg", "bio": "Success is not final, failure is not fatal: it is the courage to continue that counts."},
+        {"name": "Savana Rizky Purnama", "role": "4131240426", "image": "https://i.ibb.co.com/TqvJQ8tw/prof3.jpg", "bio": "Namaku savana. Cats bring me happiness."}]
 
     for member in team_members:
         st.markdown(f"""
