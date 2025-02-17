@@ -223,11 +223,11 @@ if selected_chapter == "Our Team":
     st.markdown("<div id='team-container'>", unsafe_allow_html=True)
     st.write("### Meet the Team Behind This Web Application")
     team_members = [
-        {"name": "Alfredo Yezekhiel Panjaitan", "role": "4131240264", "image": "https://i.ibb.co.com/1YZHB7hn/Whats-App-Image-2025-02-15-at-11-28-33-8f28dcf5.jpg", "bio": "Ubur-ubur ikan lele, semangat terus le"},
-        {"name": "Moza Siti Farhanah", "role": "4131240390", "image": "https://i.ibb.co.com/7J36F9xH/prof2.jpg", "bio": "Bob specializes in backend development and has a strong focus on SQL optimization."},
-        {"name": "Muhammad Nabihan Alzam", "role": "4131240313", "image": "https://i.ibb.co.com/ymKB09p1/Foto-Bakal-BLM.jpg", "bio": "Ketika kita tertidur maka saat itu lah mata kita tidak melek"},
-        {"name": "Nesya Nurrahma Rifi", "role": "4131240332", "image": "https://i.ibb.co.com/0VnLRCmB/prof.jpg", "bio": "Diana oversees the project and ensures everything is delivered on time."},
-        {"name": "Savana Rizky Purnama", "role": "4131240426", "image": "https://i.ibb.co.com/TqvJQ8tw/prof3.jpg", "bio": "Ethan has deep expertise in database management and ensures the app's data is managed efficiently."}]
+        {"name": "Alfredo Yezekhiel Panjaitan", "role": "4131240264", "image": "https://i.ibb.co.com/1YZHB7hn/Whats-App-Image-2025-02-15-at-11-28-33-8f28dcf5.jpg", "bio": "Ubur-ubur ikan lele, semangat terus le."},
+        {"name": "Moza Siti Farhanah", "role": "4131240390", "image": "https://i.ibb.co.com/7J36F9xH/prof2.jpg", "bio": "Take it easy, even the sun takes time to rise."},
+        {"name": "Muhammad Nabihan Alzam", "role": "4131240313", "image": "https://i.ibb.co.com/ymKB09p1/Foto-Bakal-BLM.jpg", "bio": "Ketika kita tertidur maka saat itu lah mata kita tidak melek."},
+        {"name": "Nesya Nurrahma Rifi", "role": "4131240332", "image": "https://i.ibb.co.com/0VnLRCmB/prof.jpg", "bio": "Namaku savana. Cats bring me happiness."},
+        {"name": "Savana Rizky Purnama", "role": "4131240426", "image": "https://i.ibb.co.com/TqvJQ8tw/prof3.jpg", "bio": "Success is not final, failure is not fatal: it is the courage to continue that counts."}]
 
     for member in team_members:
         st.markdown(f"""
